@@ -7,21 +7,6 @@ MainBuilder.prototype.plus = function (...args) {
   return this;
 };
 
-MainBuilder.prototype.minus = function (args) {
-  this.value = this.value.slice(0, this.value.length - args);
-  return this;
-};
-
-MainBuilder.prototype.multiply = function (args) {
-  this.value = this.value.repeat(args);
-  return this;
-};
-
-MainBuilder.prototype.divide = function (args) {
-  this.value = this.value.slice(0, Math.floor(this.value.length / args));
-  return this;
-};
-
 MainBuilder.prototype.get = function () {
   return this.value;
 };
@@ -59,6 +44,21 @@ const StringBuilder = function (value) {
 };
 
 StringBuilder.prototype = Object.create(MainBuilder.prototype);
+
+StringBuilder.prototype.minus = function (args) {
+  this.value = this.value.slice(0, this.value.length - args);
+  return this;
+};
+
+StringBuilder.prototype.multiply = function (args) {
+  this.value = this.value.repeat(args);
+  return this;
+};
+
+StringBuilder.prototype.divide = function (args) {
+  this.value = this.value.slice(0, Math.floor(this.value.length / args));
+  return this;
+};
 
 StringBuilder.prototype.remove = function (str) {
   this.value = this.value
